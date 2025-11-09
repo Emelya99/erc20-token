@@ -5,7 +5,8 @@ import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract AYEMToken is ERC20 {
     constructor() ERC20("AYEM", "AYEM") {
-        _mint(msg.sender, 64000000);
+        uint256 supply = 64_000_000 * 10 ** uint256(decimals());
+        _mint(msg.sender, supply);
     }
 
     function decimals() public view virtual override returns (uint8) {
